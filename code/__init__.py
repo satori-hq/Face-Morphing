@@ -11,10 +11,28 @@ import cv2
 def doMorphing(img1, img2, duration, frame_rate, output):
 
 	[size, img1, img2, points1, points2, list3] = generate_face_correspondences(img1, img2)
+	print('===============================================================')
+	print('generate_face_correspondences()')
+	print('===============================================================')
+	print('size:		', size)
+	print('img1:		', img1)
+	print('img2:		', img2)
+	print('points1:		', points1)
+	print('points1:		', points1)
+	print('list31:		', list3)
 
 	tri = make_delaunay(size[1], size[0], list3, img1, img2)
+	print('===============================================================')
+	print('make_delaunay()')
+	print('===============================================================')
+	print('tri:			', tri)
 
 	generate_morph_sequence(duration, frame_rate, img1, img2, points1, points2, tri, size, output)
+	print('===============================================================')
+	print('generate_morph_sequence()')	
+	print('===============================================================')
+	print('__name__		', __name__)
+
 
 if __name__ == "__main__":
 
@@ -30,4 +48,3 @@ if __name__ == "__main__":
 	image2 = cv2.imread(args.img2)
 
 	doMorphing(image1, image2, args.duration, args.frame, args.output)
-	

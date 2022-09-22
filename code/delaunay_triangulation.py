@@ -1,6 +1,4 @@
 import cv2
-import numpy as np
-import random
 
 # Check if a point is inside a rectangle
 def rect_contains(rect, point):
@@ -34,7 +32,7 @@ def draw_delaunay(f_w, f_h, subdiv, dictionary1):
     dictionary1 = {}
     return list4
 
-def make_delaunay(f_w, f_h, theList, img1, img2):
+def make_delaunay(f_w, f_h, theList):
 
     # Make a rectangle.
     rect = (0, 0, f_w, f_h)
@@ -46,6 +44,8 @@ def make_delaunay(f_w, f_h, theList, img1, img2):
     theList = theList.tolist()
     points = [(int(x[0]),int(x[1])) for x in theList]
     dictionary = {x[0]:x[1] for x in list(zip(points, range(76)))}
+
+    print('dictionary', dictionary)
     
     # Insert points into subdiv
     for p in points :
